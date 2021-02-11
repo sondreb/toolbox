@@ -51,6 +51,14 @@ https://www.mongodb.com/try/download/compass
 
 https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio
 
+You should then be able to connect to both of the database engines using "localhost" as the server name.
+
+![Azure Data Studio](assets/azure-data-studio.png)
+
+![MongoDB Compass](assets/mongodb-compass.png)
+
+![Docker Windows](assets/docker-windows.png)
+
 ## License
 
 MIT © [Sondre Bjellås](http://sondreb.com)
