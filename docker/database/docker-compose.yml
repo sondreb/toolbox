@@ -1,0 +1,34 @@
+version: "2.4"
+
+volumes:
+  mongo-database:
+    name: mongo-db
+  mssql-database:
+    name: mssql-db
+
+services:
+  mongo-database:
+    container_name: mongo-db
+    image: mongo:latest
+    command: "--wiredTigerCacheSizeGB 1"
+    mem_limit: 1000m
+    restart: always
+    stop_grace_period: 1m
+    volumes:
+      - mongo-database:/data/db
+      - mongo-database:/data/configdb
+    ports:
+      - 27017:27017
+
+  mssql-database:
+    container_name: msqsql-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    env_file:
+      - docker.env
+    environment:
+      ACCEPT_EULA: "Y"
+    restart: always
+    volumes:
+      - mssql-database:/var/opt/mssql
+    ports:
+      - 1433:1433
